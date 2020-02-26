@@ -12,9 +12,11 @@ import androidx.ui.material.TabRow
 import androidx.ui.tooling.preview.Preview
 
 class MainActivity : AppCompatActivity() {
+    private var state = MainState()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { View() }
+        setContent { View(state) }
     }
 }
 
@@ -25,17 +27,22 @@ enum class MainTab(val title: String) {
 }
 
 @Composable
-fun View() {
+fun View(state: MainState) {
     MaterialTheme {
         Column {
             Container(modifier = LayoutFlexible(1f)) {
+                when (state.tab) {
+                    MainTab.HOME -> HomeScreen.View()
+                    MainTab.DRAFT -> DraftScreen.View()
+                    MainTab.LIKE -> LikeScreen.View()
+                }
             }
             TabRow(items = MainTab.values().asList(), selectedIndex = 0, tab = { index, tab ->
                 Tab(
-                        text = tab.title,
-                        selected = tab.ordinal == index,
-                        onSelected = {
-                        }
+                    text = tab.title,
+                    selected = tab.ordinal == index,
+                    onSelected = {
+                    }
                 )
             }, indicatorContainer = {})
         }
@@ -45,5 +52,5 @@ fun View() {
 @Preview
 @Composable
 fun DefaultPreview() {
-    View()
+    View(MainState())
 }
