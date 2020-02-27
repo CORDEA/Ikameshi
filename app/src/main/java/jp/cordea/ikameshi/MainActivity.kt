@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 }
 
 enum class MainTab(val title: String) {
-    HOME("Home"),
-    DRAFT("Draft"),
+    ALBUM("Album"),
+    MUSIC("Music"),
     LIKE("Like")
 }
 
@@ -32,8 +32,8 @@ fun View(state: MainState) {
         Column {
             Container(modifier = LayoutFlexible(1f)) {
                 when (state.tab) {
-                    MainTab.HOME -> HomeScreen.View()
-                    MainTab.DRAFT -> DraftScreen.View()
+                    MainTab.ALBUM -> AlbumScreen.View()
+                    MainTab.MUSIC -> MusicScreen.View()
                     MainTab.LIKE -> LikeScreen.View()
                 }
             }

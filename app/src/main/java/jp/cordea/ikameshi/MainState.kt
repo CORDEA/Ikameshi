@@ -4,5 +4,5 @@ import androidx.compose.Model
 
 @Model
 class MainState(
-    var tab: MainTab = MainTab.HOME
+    var tab: MainTab = MainTab.ALBUM
 )

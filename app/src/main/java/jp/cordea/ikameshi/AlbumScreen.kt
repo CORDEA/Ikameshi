@@ -11,7 +11,7 @@ import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 
-object HomeScreen {
+object AlbumScreen {
     @Composable
     fun Item() {
         Ripple(bounded = true) {
