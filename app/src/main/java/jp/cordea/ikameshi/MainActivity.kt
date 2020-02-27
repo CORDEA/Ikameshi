@@ -37,6 +37,7 @@ fun View(state: MainState) {
                     MainTab.LIKE -> LikeScreen.View()
                 }
             }
+            PlayerScreen.Collapsed()
             TabRow(items = MainTab.values().asList(), selectedIndex = 0, tab = { index, tab ->
                 Tab(
                     text = tab.title,
