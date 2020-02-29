@@ -14,24 +14,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { store.provide { View(it) } }
+        setContent { store.provide { actions.View(it) } }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         store.dispose()
     }
-}
 
-@Composable
-fun View(state: State) {
-    MaterialTheme {
-        MainScreen.View(state.mainState)
+    @Composable
+    fun Actions.View(state: State) {
+        MaterialTheme {
+            MainScreen(state.mainState)
+        }
     }
-}
 
-@Preview
-@Composable
-fun DefaultPreview() {
-    View(State())
+    @Preview
+    @Composable
+    fun DefaultPreview() {
+        actions.View(State())
+    }
 }
