@@ -7,7 +7,7 @@ class FetchMusics(
     private val repository: MusicRepository
 ) {
     private val _reader = PublishProcessor.create<Unit>()
-    val reader: Flowable<Action.FetchMusics> =
+    val reader: Flowable<Action> =
         _reader
             .flatMap { repository.findAll().toFlowable() }
             .map { Action.FetchMusics(it) }
