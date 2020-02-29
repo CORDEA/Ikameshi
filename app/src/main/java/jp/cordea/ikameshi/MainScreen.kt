@@ -2,15 +2,22 @@ package jp.cordea.ikameshi
 
 import androidx.compose.Composable
 import androidx.compose.onActive
+import androidx.ui.core.Text
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
+import androidx.ui.material.TopAppBar
 
 @Composable
 fun Actions.MainScreen(state: MainState) {
     onActive { fetchMusics() }
     Column {
+        TopAppBar(
+            title = {
+                Text(state.tab.title)
+            }
+        )
         Container(modifier = LayoutFlexible(1f)) {
             when (state.tab) {
                 Tab.ALBUM -> AlbumScreen.View(state.album)
