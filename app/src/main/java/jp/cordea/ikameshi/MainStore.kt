@@ -11,6 +11,7 @@ class MainStore(
     private val state = MainState()
     private lateinit var disposable: Disposable
 
+    @Composable
     fun provide(view: @Composable() (MainState) -> Unit) {
         view(state)
         disposable = reducer.reduce()

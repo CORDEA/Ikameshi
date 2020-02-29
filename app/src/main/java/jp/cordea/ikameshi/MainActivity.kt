@@ -10,13 +10,19 @@ import androidx.ui.material.MaterialTheme
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.tooling.preview.Preview
+import org.koin.android.scope.currentScope
 
 class MainActivity : AppCompatActivity() {
-    private var state = MainState()
+    private val store by currentScope.inject<MainStore>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { View(state) }
+        setContent { store.provide { View(it) } }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        store.dispose()
     }
 }
 
