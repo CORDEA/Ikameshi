@@ -1,6 +1,7 @@
 package jp.cordea.ikameshi
 
 import androidx.compose.Composable
+import androidx.compose.onActive
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
 import androidx.ui.material.Tab
@@ -8,6 +9,7 @@ import androidx.ui.material.TabRow
 
 @Composable
 fun Actions.MainScreen(state: MainState) {
+    onActive { fetchMusics() }
     Column {
         Container(modifier = LayoutFlexible(1f)) {
             when (state.tab) {
