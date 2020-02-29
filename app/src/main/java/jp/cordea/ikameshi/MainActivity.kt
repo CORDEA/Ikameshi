@@ -10,6 +10,7 @@ import org.koin.android.scope.currentScope
 
 class MainActivity : AppCompatActivity() {
     private val store by currentScope.inject<Store>()
+    private val actions by currentScope.inject<Actions>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
