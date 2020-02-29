@@ -5,14 +5,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 
-class MainStore(
+class Store(
     private val reducer: Reducer
 ) {
-    private val state = MainState()
+    private val state = State()
     private lateinit var disposable: Disposable
 
     @Composable
-    fun provide(view: @Composable() (MainState) -> Unit) {
+    fun provide(view: @Composable() (State) -> Unit) {
         view(state)
         disposable = reducer.reduce()
             .observeOn(AndroidSchedulers.mainThread())

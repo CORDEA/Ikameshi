@@ -4,6 +4,6 @@ import androidx.compose.Model
 
 @Model
 class MainState(
-    var tab: MainTab = MainTab.ALBUM,
+    var tab: MainScreen.Tab = MainScreen.Tab.ALBUM,
     var music: MusicState = MusicState()
 )

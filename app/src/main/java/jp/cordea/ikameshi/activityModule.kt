@@ -5,7 +5,7 @@ import org.koin.dsl.module
 
 val activityModule = module {
     scope(named<MainActivity>()) {
-        scoped { MainStore(get()) }
+        scoped { Store(get()) }
         scoped { Actions(get()) }
     }
 }
