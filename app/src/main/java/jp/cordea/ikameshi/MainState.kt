@@ -3,7 +3,10 @@ package jp.cordea.ikameshi
 import androidx.compose.Model
 
 @Model
-class MainState(
+data class MainState(
     var tab: MainScreen.Tab = MainScreen.Tab.ALBUM,
-    var music: MusicState = MusicState()
+    var player: PlayerState = PlayerState(),
+    var music: MusicState = MusicState(),
+    var album: AlbumState = AlbumState(),
+    var like: LikeState = LikeState()
 )

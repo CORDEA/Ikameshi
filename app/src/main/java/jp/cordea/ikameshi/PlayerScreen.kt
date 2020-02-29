@@ -11,11 +11,11 @@ import androidx.ui.unit.dp
 
 object PlayerScreen {
     @Composable
-    fun Expanded() {
+    fun Expanded(state: PlayerState) {
     }
 
     @Composable
-    fun Collapsed() {
+    fun Collapsed(state: PlayerState) {
         Surface(color = Color.Green) {
             Row(modifier = LayoutWidth.Fill) {
                 Container(

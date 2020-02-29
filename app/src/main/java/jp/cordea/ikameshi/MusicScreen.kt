@@ -6,9 +6,11 @@ import androidx.ui.layout.LayoutHeight
 
 object MusicScreen {
     @Composable
-    fun View() {
+    fun View(state: MusicState) {
         VerticalScroller(modifier = LayoutHeight.Fill) {
-            MusicListItem()
+            state.items.forEach {
+                MusicListItem()
+            }
         }
     }
 }

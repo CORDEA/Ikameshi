@@ -17,7 +17,7 @@ import androidx.ui.unit.sp
 
 object AlbumScreen {
     @Composable
-    fun Item() {
+    fun Item(state: AlbumItemState) {
         Ripple(bounded = true) {
             Clickable(onClick = {}) {
                 Card(modifier = LayoutPadding(16.dp), shape = RoundedCornerShape(12.dp)) {
@@ -54,9 +54,11 @@ object AlbumScreen {
     }
 
     @Composable
-    fun View() {
+    fun View(state: AlbumState) {
         VerticalScroller(modifier = LayoutHeight.Fill) {
-            Item()
+            state.items.forEach {
+                Item(it)
+            }
         }
     }
 }

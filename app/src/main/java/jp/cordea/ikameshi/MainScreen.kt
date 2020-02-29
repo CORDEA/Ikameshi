@@ -12,12 +12,12 @@ object MainScreen {
         Column {
             Container(modifier = LayoutFlexible(1f)) {
                 when (state.tab) {
-                    Tab.ALBUM -> AlbumScreen.View()
-                    Tab.MUSIC -> MusicScreen.View()
-                    Tab.LIKE -> LikeScreen.View()
+                    Tab.ALBUM -> AlbumScreen.View(state.album)
+                    Tab.MUSIC -> MusicScreen.View(state.music)
+                    Tab.LIKE -> LikeScreen.View(state.like)
                 }
             }
-            PlayerScreen.Collapsed()
+            PlayerScreen.Collapsed(state.player)
             TabRow(items = Tab.values().asList(), selectedIndex = 0, tab = { index, tab ->
                 Tab(
                     text = tab.title,
