@@ -12,4 +12,11 @@ sealed class MusicResult {
         class Success(val musics: List<Music>) : FetchFavoriteMusics()
         object Failure : FetchFavoriteMusics()
     }
+
+    sealed class ChangeFavoriteState(val id: Long) : MusicResult() {
+        class Loading(id: Long) : ChangeFavoriteState(id)
+        class Like(id: Long) : ChangeFavoriteState(id)
+        class Unlike(id: Long) : ChangeFavoriteState(id)
+        class Failure(id: Long) : ChangeFavoriteState(id)
+    }
 }
