@@ -5,5 +5,6 @@ class Music(
     val title: String,
     val artist: Artist,
     val thumbnailUrl: String,
-    val releaseYear: String
+    val releaseYear: String,
+    val liked: Boolean
 )

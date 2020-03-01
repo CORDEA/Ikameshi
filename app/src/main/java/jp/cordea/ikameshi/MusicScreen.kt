@@ -19,7 +19,7 @@ class MusicScreen(
     @Composable
     fun View(state: MusicState) {
         onActive {
-            store.onResult()
+            store.onMusicChanged()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy {
                     when (it) {

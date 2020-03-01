@@ -9,7 +9,7 @@ class MusicRepository {
         Single
             .just(
                 listOf(
-                    Music(0L, "music", Artist(0L, "artist"), "", "")
+                    Music(0L, "music", Artist(0L, "artist"), "", "", false)
                 )
             )
             .delay(1, TimeUnit.SECONDS)
