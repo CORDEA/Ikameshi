@@ -1,8 +1,8 @@
 package jp.cordea.ikameshi
 
-sealed class LikeMusicResult {
-    class Loading(val id: Long) : LikeMusicResult()
-    class Like(val id: Long) : LikeMusicResult()
-    class Unlike(val id: Long) : LikeMusicResult()
-    class Failure(val id: Long) : LikeMusicResult()
+sealed class LikeMusicResult(val id: Long) {
+    class Loading(id: Long) : LikeMusicResult(id)
+    class Like(id: Long) : LikeMusicResult(id)
+    class Unlike(id: Long) : LikeMusicResult(id)
+    class Failure(id: Long) : LikeMusicResult(id)
 }

@@ -10,5 +10,6 @@ data class MusicState(
 @Model
 data class MusicItemState(
     val id: Long,
-    val title: String
+    val title: String,
+    var liked: Boolean = false
 )

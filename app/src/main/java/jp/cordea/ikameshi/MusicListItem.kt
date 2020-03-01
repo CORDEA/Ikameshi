@@ -1,6 +1,8 @@
 package jp.cordea.ikameshi
 
 import androidx.compose.Composable
+import androidx.compose.onActive
+import androidx.compose.onDispose
 import androidx.ui.core.Text
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
@@ -13,13 +15,39 @@ import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.SerialDisposable
+import io.reactivex.rxkotlin.subscribeBy
 
 class MusicListItem(
     private val actions: Actions,
     private val store: LikeMusicStore
 ) {
+    private val serialDisposable = SerialDisposable()
+
     @Composable
     fun View(state: MusicItemState) {
+        onActive {
+            store.onResult()
+                .filter { it.id == state.id }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy {
+                    when (it) {
+                        is LikeMusicResult.Loading -> {
+                        }
+                        is LikeMusicResult.Like ->
+                            state.liked = true
+                        is LikeMusicResult.Unlike ->
+                            state.liked = false
+                        is LikeMusicResult.Failure -> {
+                        }
+                    }
+                }
+                .run { serialDisposable.set(this) }
+        }
+        onDispose {
+            serialDisposable.dispose()
+        }
         Ripple(bounded = true) {
             Clickable(onClick = {}) {
                 Container(padding = EdgeInsets(16.dp)) {
@@ -41,6 +69,11 @@ class MusicListItem(
                         }
                         Ripple(bounded = false) {
                             Clickable(onClick = {
+                                if (state.liked) {
+                                    actions.unlikeMusic(state.id)
+                                } else {
+                                    actions.likeMusic(state.id)
+                                }
                             }) {
                                 Container(
                                     modifier = LayoutGravity.Center,
