@@ -26,7 +26,6 @@ class MainScreen(
                         is TabResult.Select -> state.tab = it.tab
                     }
                 }
-            actions.fetchMusics()
         }
         Column {
             TopAppBar(

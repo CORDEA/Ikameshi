@@ -4,7 +4,7 @@ import androidx.compose.Model
 
 @Model
 data class MusicState(
-    val items: List<MusicItemState> = emptyList()
+    var items: List<MusicItemState> = emptyList()
 )
 
 @Model
