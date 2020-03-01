@@ -13,8 +13,6 @@ class App : Application() {
                 listOf(
                     repositoryModule,
                     appModule,
-                    actionModule,
-                    activityModule,
                     storeModule,
                     screenModule
                 )
