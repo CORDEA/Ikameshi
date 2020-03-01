@@ -2,6 +2,7 @@ package jp.cordea.ikameshi
 
 import androidx.compose.Composable
 import androidx.compose.onActive
+import androidx.compose.onDispose
 import androidx.ui.core.Text
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
@@ -9,6 +10,7 @@ import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.material.TopAppBar
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
 
 class MainScreen(
@@ -16,6 +18,8 @@ class MainScreen(
     private val store: TabStore,
     private val musicScreen: MusicScreen
 ) {
+    private val serialDisposable = SerialDisposable()
+
     @Composable
     fun View(state: MainState) {
         onActive {
@@ -26,6 +30,10 @@ class MainScreen(
                         is TabResult.Select -> state.tab = it.tab
                     }
                 }
+                .run(serialDisposable::set)
+        }
+        onDispose {
+            serialDisposable.dispose()
         }
         Column {
             TopAppBar(
