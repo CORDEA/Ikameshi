@@ -35,7 +35,7 @@ class MusicScreen(
                             state.items = emptyList()
                     }
                 }
-                .run(serialDisposable::set)
+                .run { serialDisposable.set(this) }
             actions.fetchMusics()
         }
         onDispose {

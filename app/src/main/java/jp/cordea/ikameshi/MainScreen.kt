@@ -30,7 +30,7 @@ class MainScreen(
                         is TabResult.Select -> state.tab = it.tab
                     }
                 }
-                .run(serialDisposable::set)
+                .run { serialDisposable.set(this) }
         }
         onDispose {
             serialDisposable.dispose()
