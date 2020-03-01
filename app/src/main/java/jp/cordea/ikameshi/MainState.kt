@@ -4,9 +4,9 @@ import androidx.compose.Model
 
 @Model
 data class MainState(
-    var tab: Tab = Tab.ALBUM,
-    var player: PlayerState = PlayerState(),
-    var music: MusicState = MusicState(),
-    var album: AlbumState = AlbumState(),
-    var like: LikeState = LikeState()
+    val tab: Tab = Tab.ALBUM,
+    val player: PlayerState = PlayerState(),
+    val music: MusicState = MusicState(),
+    val album: AlbumState = AlbumState(),
+    val like: LikeState = LikeState()
 )
