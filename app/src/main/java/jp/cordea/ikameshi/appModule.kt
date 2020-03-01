@@ -3,5 +3,5 @@ package jp.cordea.ikameshi
 import org.koin.dsl.module
 
 val appModule = module {
-    single { Reducer(get(), get()) }
+    single { Reducer(get(), get(), get(), get()) }
 }

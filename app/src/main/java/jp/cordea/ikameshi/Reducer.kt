@@ -5,10 +5,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 
 class Reducer(
     private val changeTab: ChangeTab,
+    private val likeMusic: LikeMusic,
+    private val unlikeMusic: UnlikeMusic,
     private val fetchMusics: FetchMusics
 ) {
     fun reduce(initialState: State): Flowable<State> =
-        Flowable.merge(fetchMusics.reader, changeTab.reader)
+        Flowable.merge(fetchMusics.reader, changeTab.reader, likeMusic.reader, unlikeMusic.reader)
             .distinctUntilChanged()
             .observeOn(AndroidSchedulers.mainThread())
             .scanWith({ initialState }, { state, action ->
@@ -26,6 +28,8 @@ class Reducer(
                                 }
                             )
                         ))
+                    is Action.LikeMusic -> state
+                    is Action.UnlikeMusic -> state
                 }
             })
 }
