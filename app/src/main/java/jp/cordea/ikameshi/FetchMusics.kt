@@ -10,7 +10,7 @@ class FetchMusics(
     val reader: Flowable<Action> =
         _reader
             .flatMap { repository.findAll().toFlowable() }
-            .map { Action.FetchMusics(it) }
+            .map { Action.FetchMusics() }
 
     fun dispatch() {
         _reader.offer(Unit)

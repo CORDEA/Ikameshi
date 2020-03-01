@@ -14,8 +14,8 @@ class Store(
     @Composable
     fun provide(view: @Composable() (State) -> Unit) {
         onActive {
-            disposable = reducer.reduce(state)
-                .subscribeBy { state.mainState = it.mainState }
+//            disposable = reducer.reduce(state)
+//                .subscribeBy { state.mainState = it.mainState }
         }
         view(state)
     }

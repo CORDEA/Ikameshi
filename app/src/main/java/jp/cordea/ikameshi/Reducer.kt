@@ -17,17 +17,17 @@ class Reducer(
                 when (action) {
                     is Action.ChangeTab ->
                         State(state.mainState.copy(tab = action.tab))
-                    is Action.FetchMusics ->
-                        State(state.mainState.copy(
-                            music = MusicState(
-                                action.musics.map {
-                                    MusicItemState(
-                                        it.id,
-                                        it.title
-                                    )
-                                }
-                            )
-                        ))
+                    is Action.FetchMusics -> state
+//                        State(state.mainState.copy(
+//                            music = MusicState(
+//                                action.musics.map {
+//                                    MusicItemState(
+//                                        it.id,
+//                                        it.title
+//                                    )
+//                                }
+//                            )
+//                        ))
                     is Action.LikeMusic -> state
                     is Action.UnlikeMusic -> state
                 }
