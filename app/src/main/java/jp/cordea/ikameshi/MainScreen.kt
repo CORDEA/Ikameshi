@@ -16,7 +16,8 @@ import io.reactivex.rxkotlin.subscribeBy
 class MainScreen(
     private val actions: Actions,
     private val store: TabStore,
-    private val musicScreen: MusicScreen
+    private val musicScreen: MusicScreen,
+    private val likeScreen: LikeScreen
 ) {
     private val serialDisposable = SerialDisposable()
 
@@ -45,7 +46,7 @@ class MainScreen(
                 when (state.tab) {
                     Tab.ALBUM -> AlbumScreen.View(state.album)
                     Tab.MUSIC -> musicScreen.View(state.music)
-                    Tab.LIKE -> LikeScreen.View(state.like)
+                    Tab.LIKE -> likeScreen.View(state.like)
                 }
             }
             PlayerScreen.Collapsed(state.player)
