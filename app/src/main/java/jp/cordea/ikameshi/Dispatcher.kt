@@ -5,7 +5,7 @@ import io.reactivex.processors.PublishProcessor
 
 class Dispatcher {
     private val _reader = PublishProcessor.create<Action>()
-    val reader: Flowable<Action> = _reader
+    val reader: Flowable<Action> = _reader.share()
 
     fun dispatch(action: Action) {
         _reader.offer(action)
