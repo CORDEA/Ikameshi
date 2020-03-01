@@ -5,4 +5,5 @@ import org.koin.dsl.module
 val storeModule = module {
     single { MusicStore(get(), get()) }
     single { TabStore(get()) }
+    single { LikeMusicStore(get(), get()) }
 }

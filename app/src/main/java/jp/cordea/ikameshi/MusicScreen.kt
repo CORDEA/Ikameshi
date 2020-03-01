@@ -11,7 +11,8 @@ import io.reactivex.rxkotlin.subscribeBy
 
 class MusicScreen(
     private val actions: Actions,
-    private val store: MusicStore
+    private val store: MusicStore,
+    private val listItem: MusicListItem
 ) {
     private val serialDisposable = SerialDisposable()
 
@@ -42,9 +43,7 @@ class MusicScreen(
             serialDisposable.dispose()
         }
         VerticalScroller(modifier = LayoutHeight.Fill) {
-            state.items.forEach {
-                //                MusicListItem(it)
-            }
+            state.items.forEach { listItem.View(it) }
         }
     }
 }
