@@ -3,6 +3,6 @@ package jp.cordea.ikameshi
 import androidx.compose.Model
 
 @Model
-data class LikeState(
+data class FavoriteState(
     var items: List<MusicItemState> = emptyList()
 )

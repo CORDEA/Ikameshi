@@ -4,11 +4,11 @@ import androidx.compose.Composable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.layout.LayoutHeight
 
-class LikeScreen(
+class FavoriteScreen(
     private val listItem: MusicListItem
 ) {
     @Composable
-    fun View(state: LikeState) {
+    fun View(state: FavoriteState) {
         VerticalScroller(modifier = LayoutHeight.Fill) {
             state.items.forEach { listItem.View(it) }
         }

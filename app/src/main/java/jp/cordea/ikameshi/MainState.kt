@@ -8,5 +8,5 @@ data class MainState(
     val player: PlayerState = PlayerState(),
     val music: MusicState = MusicState(),
     val album: AlbumState = AlbumState(),
-    val like: LikeState = LikeState()
+    val favorite: FavoriteState = FavoriteState()
 )

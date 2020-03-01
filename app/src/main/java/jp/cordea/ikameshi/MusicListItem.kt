@@ -21,7 +21,7 @@ import io.reactivex.rxkotlin.subscribeBy
 
 class MusicListItem(
     private val actions: Actions,
-    private val store: LikeMusicStore
+    private val store: MusicPreferenceStore
 ) {
     private val serialDisposable = SerialDisposable()
 
@@ -33,13 +33,13 @@ class MusicListItem(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy {
                     when (it) {
-                        is LikeMusicResult.Loading -> {
+                        is MusicPreferenceResult.Loading -> {
                         }
-                        is LikeMusicResult.Like ->
+                        is MusicPreferenceResult.Like ->
                             state.liked = true
-                        is LikeMusicResult.Unlike ->
+                        is MusicPreferenceResult.Unlike ->
                             state.liked = false
-                        is LikeMusicResult.Failure -> {
+                        is MusicPreferenceResult.Failure -> {
                         }
                     }
                 }
