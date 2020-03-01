@@ -9,11 +9,5 @@ class TabStore(
     fun onResult(): Flowable<TabResult> =
         dispatcher.reader
             .ofType<Action.ChangeTab>()
-            .map {
-                when (it.tab) {
-                    Tab.ALBUM -> TabResult.SelectAlbum
-                    Tab.MUSIC -> TabResult.SelectMusic
-                    Tab.LIKE -> TabResult.SelectLike
-                }
-            }
+            .map { TabResult.Select(it.tab) }
 }
