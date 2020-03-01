@@ -9,7 +9,7 @@ object LikeScreen {
     fun View(state: LikeState) {
         VerticalScroller(modifier = LayoutHeight.Fill) {
             state.items.forEach {
-                MusicListItem()
+//                MusicListItem()
             }
         }
     }

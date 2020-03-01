@@ -15,7 +15,7 @@ import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 
 @Composable
-fun MusicListItem() {
+fun Actions.MusicListItem(state: MusicItemState) {
     Ripple(bounded = true) {
         Clickable(onClick = {}) {
             Container(padding = EdgeInsets(16.dp)) {

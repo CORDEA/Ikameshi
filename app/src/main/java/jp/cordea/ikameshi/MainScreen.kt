@@ -21,7 +21,7 @@ fun Actions.MainScreen(state: MainState) {
         Container(modifier = LayoutFlexible(1f)) {
             when (state.tab) {
                 Tab.ALBUM -> AlbumScreen.View(state.album)
-                Tab.MUSIC -> MusicScreen.View(state.music)
+                Tab.MUSIC -> MusicScreen(state.music)
                 Tab.LIKE -> LikeScreen.View(state.like)
             }
         }
