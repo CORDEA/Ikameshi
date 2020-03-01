@@ -8,7 +8,7 @@ class MusicStore(
     private val repository: MusicRepository
 ) {
     private val fetchMusicsEvent =
-        dispatcher.reader.ofType<Action.FetchMusics>().share()
+        dispatcher.reader.ofType<Action.FetchMusics>()
     private val fetchMusics: Flowable<MusicResult> =
         fetchMusicsEvent
             .flatMap { repository.findAll().toFlowable() }
