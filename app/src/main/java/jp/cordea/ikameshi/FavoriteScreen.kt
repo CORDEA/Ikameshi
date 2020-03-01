@@ -10,6 +10,7 @@ import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
 
 class FavoriteScreen(
+    private val actions: Actions,
     private val store: MusicStore,
     private val listItem: MusicListItem
 ) {
@@ -37,6 +38,7 @@ class FavoriteScreen(
                     }
                 }
                 .run { serialDisposable.set(this) }
+            actions.fetchFavoriteMusics()
         }
         onDispose {
             serialDisposable.dispose()
