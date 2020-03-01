@@ -35,8 +35,16 @@ fun MusicListItem() {
                             style = TextStyle(fontSize = 12.sp)
                         )
                     }
-                    Container(modifier = LayoutGravity.Center, padding = EdgeInsets(16.dp)) {
-                        DrawVector(vectorResource(R.drawable.ic_baseline_favorite_border_24))
+                    Ripple(bounded = false) {
+                        Clickable(onClick = {
+                        }) {
+                            Container(
+                                modifier = LayoutGravity.Center,
+                                padding = EdgeInsets(16.dp)
+                            ) {
+                                DrawVector(vectorResource(R.drawable.ic_baseline_favorite_border_24))
+                            }
+                        }
                     }
                     Spacer(modifier = LayoutWidth(16.dp))
                     Container(modifier = LayoutGravity.Center, padding = EdgeInsets(16.dp)) {
