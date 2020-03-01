@@ -21,25 +21,25 @@ import io.reactivex.rxkotlin.subscribeBy
 
 class MusicListItem(
     private val actions: Actions,
-    private val store: MusicPreferenceStore
+    private val store: MusicStore
 ) {
     private val serialDisposable = SerialDisposable()
 
     @Composable
     fun View(state: MusicItemState) {
         onActive {
-            store.onResult()
+            store.onFavoriteStateChanged()
                 .filter { it.id == state.id }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy {
                     when (it) {
-                        is MusicPreferenceResult.Loading -> {
+                        is MusicResult.ChangeFavoriteState.Loading -> {
                         }
-                        is MusicPreferenceResult.Like ->
+                        is MusicResult.ChangeFavoriteState.Like ->
                             state.liked = true
-                        is MusicPreferenceResult.Unlike ->
+                        is MusicResult.ChangeFavoriteState.Unlike ->
                             state.liked = false
-                        is MusicPreferenceResult.Failure -> {
+                        is MusicResult.ChangeFavoriteState.Failure -> {
                         }
                     }
                 }
