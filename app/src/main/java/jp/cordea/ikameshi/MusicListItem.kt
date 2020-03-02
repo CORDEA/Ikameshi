@@ -49,7 +49,9 @@ class MusicListItem(
             serialDisposable.dispose()
         }
         Ripple(bounded = true) {
-            Clickable(onClick = {}) {
+            Clickable(onClick = {
+                actions.playMusic(state.id)
+            }) {
                 Container(padding = EdgeInsets(16.dp)) {
                     Row(modifier = LayoutWidth.Fill) {
                         Surface(color = Color.Blue, shape = RoundedCornerShape(2.dp)) {
