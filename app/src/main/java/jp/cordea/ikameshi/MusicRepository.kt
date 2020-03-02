@@ -14,4 +14,7 @@ class MusicRepository {
             )
             .delay(1, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
+
+    fun find(id: Long): Single<Music> =
+        findAll().flattenAsObservable { it }.filter { it.id == id }.firstOrError()
 }
