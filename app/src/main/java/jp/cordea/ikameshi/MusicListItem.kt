@@ -75,11 +75,20 @@ class MusicListItem(
                                     actions.likeMusic(state.id)
                                 }
                             }) {
-                                Container(
-                                    modifier = LayoutGravity.Center,
-                                    padding = EdgeInsets(16.dp)
-                                ) {
-                                    DrawVector(vectorResource(R.drawable.ic_baseline_favorite_border_24))
+                                if (state.liked) {
+                                    Container(
+                                        modifier = LayoutGravity.Center,
+                                        padding = EdgeInsets(16.dp)
+                                    ) {
+                                        DrawVector(vectorResource(R.drawable.ic_baseline_favorite_24))
+                                    }
+                                } else {
+                                    Container(
+                                        modifier = LayoutGravity.Center,
+                                        padding = EdgeInsets(16.dp)
+                                    ) {
+                                        DrawVector(vectorResource(R.drawable.ic_baseline_favorite_border_24))
+                                    }
                                 }
                             }
                         }
