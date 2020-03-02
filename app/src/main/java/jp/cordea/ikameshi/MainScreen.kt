@@ -17,6 +17,7 @@ class MainScreen(
     private val actions: Actions,
     private val store: TabStore,
     private val musicScreen: MusicScreen,
+    private val playerScreen: PlayerScreen,
     private val favoriteScreen: FavoriteScreen
 ) {
     private val serialDisposable = SerialDisposable()
@@ -49,7 +50,7 @@ class MainScreen(
                     Tab.LIKE -> favoriteScreen.View(state.favorite)
                 }
             }
-            PlayerScreen.Collapsed(state.player)
+            playerScreen.Collapsed(state.player)
             TabRow(items = Tab.values().asList(), selectedIndex = 0, tab = { index, tab ->
                 Tab(
                     text = tab.title,
