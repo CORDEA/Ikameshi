@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.action
 
 import jp.cordea.ikameshi.screen.MainScreen
 

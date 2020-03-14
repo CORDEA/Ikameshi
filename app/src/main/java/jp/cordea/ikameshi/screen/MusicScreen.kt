@@ -8,8 +8,8 @@ import androidx.ui.layout.LayoutHeight
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
-import jp.cordea.ikameshi.*
 import jp.cordea.ikameshi.MusicListItem
+import jp.cordea.ikameshi.action.Actions
 import jp.cordea.ikameshi.store.MusicResult
 import jp.cordea.ikameshi.store.MusicStore
 
