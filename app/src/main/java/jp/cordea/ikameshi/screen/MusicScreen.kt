@@ -10,6 +10,8 @@ import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import jp.cordea.ikameshi.*
 import jp.cordea.ikameshi.MusicListItem
+import jp.cordea.ikameshi.store.MusicResult
+import jp.cordea.ikameshi.store.MusicStore
 
 class MusicScreen(
     private val actions: Actions,

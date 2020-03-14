@@ -1,7 +1,9 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.store
 
 import io.reactivex.Flowable
 import io.reactivex.rxkotlin.ofType
+import jp.cordea.ikameshi.Action
+import jp.cordea.ikameshi.Dispatcher
 import jp.cordea.ikameshi.repository.MusicPreferenceRepository
 import jp.cordea.ikameshi.repository.MusicRepository
 
@@ -15,7 +17,11 @@ class MusicStore(
     private val fetchMusics: Flowable<MusicResult.FetchMusics> =
         fetchMusicsEvent
             .flatMap { repository.findAll().toFlowable() }
-            .map<MusicResult.FetchMusics> { MusicResult.FetchMusics.Success(it) }
+            .map<MusicResult.FetchMusics> {
+                MusicResult.FetchMusics.Success(
+                    it
+                )
+            }
             .onErrorReturnItem(MusicResult.FetchMusics.Failure)
 
     private val fetchFavoriteMusics: Flowable<MusicResult.FetchFavoriteMusics> =
@@ -33,7 +39,11 @@ class MusicStore(
                             )
                         )
                     )
-                    .onErrorReturnItem(MusicResult.ChangeFavoriteState.Failure(it.id))
+                    .onErrorReturnItem(
+                        MusicResult.ChangeFavoriteState.Failure(
+                            it.id
+                        )
+                    )
             }
             .share()
     private val unlikeMusic: Flowable<MusicResult.ChangeFavoriteState> =
@@ -48,7 +58,11 @@ class MusicStore(
                             )
                         )
                     )
-                    .onErrorReturnItem(MusicResult.ChangeFavoriteState.Failure(it.id))
+                    .onErrorReturnItem(
+                        MusicResult.ChangeFavoriteState.Failure(
+                            it.id
+                        )
+                    )
             }
             .share()
 
@@ -75,11 +89,19 @@ class MusicStore(
             .merge(
                 dispatcher.reader
                     .ofType<Action.LikeMusic>()
-                    .map { MusicResult.ChangeFavoriteState.Loading(it.id) },
+                    .map {
+                        MusicResult.ChangeFavoriteState.Loading(
+                            it.id
+                        )
+                    },
                 likeMusic,
                 dispatcher.reader
                     .ofType<Action.UnlikeMusic>()
-                    .map { MusicResult.ChangeFavoriteState.Loading(it.id) },
+                    .map {
+                        MusicResult.ChangeFavoriteState.Loading(
+                            it.id
+                        )
+                    },
                 unlikeMusic
             )
             .share()
@@ -90,6 +112,10 @@ class MusicStore(
             .filter { it.liked }
             .toList()
             .toFlowable()
-            .map<MusicResult.FetchFavoriteMusics> { MusicResult.FetchFavoriteMusics.Success(it) }
+            .map<MusicResult.FetchFavoriteMusics> {
+                MusicResult.FetchFavoriteMusics.Success(
+                    it
+                )
+            }
             .onErrorReturnItem(MusicResult.FetchFavoriteMusics.Failure)
 }
