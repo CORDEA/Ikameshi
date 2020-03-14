@@ -1,7 +1,5 @@
 package jp.cordea.ikameshi.response
 
-import jp.cordea.ikameshi.response.Artist
-
 class Album(
     val id: Long,
     val title: String,

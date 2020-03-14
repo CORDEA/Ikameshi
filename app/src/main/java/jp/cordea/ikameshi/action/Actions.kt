@@ -9,6 +9,7 @@ class Actions(private val dispatcher: Dispatcher) {
             tab
         )
     )
+
     fun fetchMusics() = dispatcher.dispatch(Action.FetchMusics())
     fun fetchFavoriteMusics() = dispatcher.dispatch(Action.FetchFavoriteMusics)
     fun likeMusic(id: Long) = dispatcher.dispatch(
@@ -16,6 +17,7 @@ class Actions(private val dispatcher: Dispatcher) {
             id
         )
     )
+
     fun unlikeMusic(id: Long) = dispatcher.dispatch(
         Action.UnlikeMusic(
             id
