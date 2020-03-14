@@ -18,6 +18,7 @@ import androidx.ui.unit.sp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
+import jp.cordea.ikameshi.screen.MusicItemState
 
 class MusicListItem(
     private val actions: Actions,

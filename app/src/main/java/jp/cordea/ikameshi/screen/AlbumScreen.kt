@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.screen
 
 import androidx.compose.Composable
 import androidx.ui.core.Text

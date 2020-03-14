@@ -1,5 +1,7 @@
 package jp.cordea.ikameshi
 
+import jp.cordea.ikameshi.screen.MainScreen
+
 sealed class Action {
     class ChangeTab(val tab: MainScreen.Tab) : Action()
     class FetchMusics() : Action()

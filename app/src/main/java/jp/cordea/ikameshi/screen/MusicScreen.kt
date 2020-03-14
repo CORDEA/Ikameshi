@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.screen
 
 import androidx.compose.Composable
 import androidx.compose.onActive
@@ -8,6 +8,7 @@ import androidx.ui.layout.LayoutHeight
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
+import jp.cordea.ikameshi.*
 
 class MusicScreen(
     private val actions: Actions,

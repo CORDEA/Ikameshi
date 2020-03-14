@@ -1,5 +1,7 @@
 package jp.cordea.ikameshi
 
+import jp.cordea.ikameshi.screen.MainScreen
+
 class Actions(private val dispatcher: Dispatcher) {
     fun changeTab(tab: MainScreen.Tab) = dispatcher.dispatch(Action.ChangeTab(tab))
     fun fetchMusics() = dispatcher.dispatch(Action.FetchMusics())

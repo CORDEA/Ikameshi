@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.screen
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
@@ -8,6 +8,7 @@ import androidx.ui.layout.*
 import androidx.ui.material.surface.Surface
 import androidx.ui.res.vectorResource
 import androidx.ui.unit.dp
+import jp.cordea.ikameshi.R
 
 object PlayerScreen {
     @Composable

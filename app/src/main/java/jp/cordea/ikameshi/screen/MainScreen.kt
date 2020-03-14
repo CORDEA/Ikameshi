@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.screen
 
 import androidx.compose.Composable
 import androidx.compose.onActive
@@ -12,6 +12,7 @@ import androidx.ui.material.TopAppBar
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
+import jp.cordea.ikameshi.*
 
 class MainScreen(
     private val actions: Actions,

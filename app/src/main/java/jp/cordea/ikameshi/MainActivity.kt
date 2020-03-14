@@ -6,6 +6,7 @@ import androidx.compose.Composable
 import androidx.ui.core.setContent
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
+import jp.cordea.ikameshi.screen.MainScreen
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {

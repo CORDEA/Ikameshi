@@ -1,5 +1,8 @@
 package jp.cordea.ikameshi
 
+import jp.cordea.ikameshi.screen.FavoriteScreen
+import jp.cordea.ikameshi.screen.MainScreen
+import jp.cordea.ikameshi.screen.MusicScreen
 import org.koin.dsl.module
 
 val screenModule = module {
