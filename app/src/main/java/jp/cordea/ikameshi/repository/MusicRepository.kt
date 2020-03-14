@@ -11,16 +11,12 @@ class MusicRepository {
         Single
             .just(
                 listOf(
-                    Music(
-                        0L,
-                        "music",
-                        Artist(0L, "artist"),
-                        "",
-                        "",
-                        false
-                    )
+                    Music(0L, "music", Artist(0L, "artist"), "", "", false)
                 )
             )
             .delay(1, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
+
+    fun find(id: Long): Single<Music> =
+        findAll().flattenAsObservable { it }.filter { it.id == id }.firstOrError()
 }
