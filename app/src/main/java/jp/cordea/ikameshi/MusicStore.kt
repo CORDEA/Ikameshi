@@ -2,6 +2,8 @@ package jp.cordea.ikameshi
 
 import io.reactivex.Flowable
 import io.reactivex.rxkotlin.ofType
+import jp.cordea.ikameshi.repository.MusicPreferenceRepository
+import jp.cordea.ikameshi.repository.MusicRepository
 
 class MusicStore(
     private val dispatcher: Dispatcher,

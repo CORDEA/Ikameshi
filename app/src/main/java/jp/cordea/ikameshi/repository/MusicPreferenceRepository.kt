@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.repository
 
 import io.reactivex.Completable
 import java.util.concurrent.TimeUnit

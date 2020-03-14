@@ -1,5 +1,7 @@
 package jp.cordea.ikameshi
 
+import jp.cordea.ikameshi.response.Music
+
 sealed class MusicResult {
     sealed class FetchMusics : MusicResult() {
         object Loading : FetchMusics()

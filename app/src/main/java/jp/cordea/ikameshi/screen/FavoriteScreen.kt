@@ -9,6 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import jp.cordea.ikameshi.*
+import jp.cordea.ikameshi.MusicListItem
 
 class FavoriteScreen(
     private val actions: Actions,
