@@ -1,6 +1,6 @@
 package jp.cordea.ikameshi.di
 
-import jp.cordea.ikameshi.MusicPlaybackStore
+import jp.cordea.ikameshi.store.MusicPlaybackStore
 import jp.cordea.ikameshi.store.MusicStore
 import jp.cordea.ikameshi.store.TabStore
 import org.koin.dsl.module

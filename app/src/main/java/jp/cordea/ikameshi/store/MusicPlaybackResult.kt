@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.store
 
 import jp.cordea.ikameshi.response.Music
 

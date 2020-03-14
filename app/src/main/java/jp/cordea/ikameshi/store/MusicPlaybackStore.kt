@@ -1,7 +1,8 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.store
 
 import io.reactivex.Flowable
 import io.reactivex.rxkotlin.ofType
+import jp.cordea.ikameshi.Dispatcher
 import jp.cordea.ikameshi.action.Action
 import jp.cordea.ikameshi.repository.MusicRepository
 

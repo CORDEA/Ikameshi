@@ -15,8 +15,8 @@ import androidx.ui.unit.dp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.SerialDisposable
 import io.reactivex.rxkotlin.subscribeBy
-import jp.cordea.ikameshi.MusicPlaybackResult
-import jp.cordea.ikameshi.MusicPlaybackStore
+import jp.cordea.ikameshi.store.MusicPlaybackResult
+import jp.cordea.ikameshi.store.MusicPlaybackStore
 import jp.cordea.ikameshi.R
 import jp.cordea.ikameshi.action.Actions
 
