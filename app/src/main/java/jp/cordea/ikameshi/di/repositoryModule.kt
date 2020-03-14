@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.di
 
 import jp.cordea.ikameshi.repository.MusicPreferenceRepository
 import jp.cordea.ikameshi.repository.MusicRepository

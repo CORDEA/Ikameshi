@@ -1,4 +1,4 @@
-package jp.cordea.ikameshi
+package jp.cordea.ikameshi.di
 
 import jp.cordea.ikameshi.store.MusicStore
 import jp.cordea.ikameshi.store.TabStore
